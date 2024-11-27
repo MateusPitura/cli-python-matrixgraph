@@ -3,6 +3,7 @@ import networkx as nx
 from matplotlib.animation import FuncAnimation
 from time import sleep
 
+
 class Graph:
     def __init__(self, vertices):
         self.vertices = vertices
@@ -13,6 +14,8 @@ class Graph:
         self.grafo[u-1][v-1] = 1
         self.grafo[v-1][u-1] = 1
         self.edges.append((u, v))
+
+    # TODO: criar aqui um método para remover
 
     def mostra_grafo(self):
         print('A matriz de adjacências é: ')
@@ -31,6 +34,9 @@ for i in range(quantidadeArestas):
     u = int(input("De qual vertice parte esta aresta: "))
     v = int(input("Em qual vertice chega esta aresta: "))
     G.add_edge(u, v) # Adiciona uma aresta
+    # TODO: usar o método do grafo do networkx para remover a aresta
     nx.draw(G, pos, with_labels=True, node_color='skyblue', edge_color='black', node_size=700, font_size=12) # ANIMAÇÃO: desenha o grafo
     plt.title(f'Adding Edge: {u} -> {v}') # ANIMAÇÃO: define o título da figura
     plt.pause(1) # ANIMAÇÃO: pausa a animação, precisa disso se não não mostra nada
+
+# TODO: ao adicionar uma aresta no grafo do networkx, também adicionar ao grafo de matriz de adjacências, além disso, na figura mostrar também a matriz de adjacências ou se não der mostrar no terminal depois de cada inserção de aresta
